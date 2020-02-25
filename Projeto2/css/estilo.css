@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: OpenSans-Regular;
+	src: url(OpenSans-Regular.ttf);
+}
+
+body {
+	background: url("background.jpg");
+}
+
+section#box-principal {
+	background-color: #FFF;
+	font-family: OpenSans-Regular !important;
+}
+
+section#box-principal header.titulo-projeto {
+	text-align: center;
+	border-bottom: 1px solid gray;
+	margin-bottom: 35px;
+}
+header.titulo-projeto img {
+	max-width: 200px;
+}
+
+div#resultados img {
+	max-width: 350px;
+	text-align: center;
+}
+header.titulo-projeto{ 
+	display: block;
+	position: relative;
+	padding-top: 100px;
+	padding-right: 25px;
+	padding-bottom: 40px;
+}
+
+/*tigers*/
+img#Logo{
+	position: absolute;
+	top: 80px;
+	left: 0px;
+	width: 173px; /*Norma: 1,333...*/
+	height: 130px; 
+}
+
+/*unesp*/
+img#Logo-2{
+	position: absolute;
+	top: 90px;
+	left: 900px;
+	width: 190px; /*Norma: 1,8916*/
+	height: 100px; 
+}	
+/*tigers
+img#Logo{
+	position: absolute;
+	top: 80px;
+	left: 10%;
+	width: 173px;
+	height: 130px; 
+}*/
+
+/*unesp
+img#Logo-2{
+	position: absolute;
+	top: 90px;
+	left: 75%;
+	width: 190px;
+	height: 100px;
+}*/
+div.botoes {
+	margin-bottom: 40px;
+}
+
+/* input.form-control {
+	max-width: 350px;
+} */
+
+/*div.form-group {
+	margin-bottom: 10px !important;
+}*/
+
+/*		div.box-circuito {
+	margin-top: 70px;
+}*/
+div.box-circuito figure figcaption {
+	text-align: center;
+	text-transform: lowercase;
+	font-size: 1em;
+	/*margin-top: 50px;*/
+}
+
+figure.imagem_circuito {
+	text-align: center;
+}
+
+figure.imagem_circuito img {
+	max-width: 400px;
+}
+
+p.recuo {
+	text-indent: 2em;
+}
+/* div resultados*/
+div#resultados {
+	margin-top: 30px;
+}
+div#resultados figure {
+	text-align: center;
+}
+.btn-calcular {
+	color: #fff;
+	background-color: #54adef;
+	border-color: #3e87bd;
+}
+
+.btn-calcular:hover {
+	color: #fff;
+	background-color: #a6d8fd;
+	border-color: #000;
+}
+
+/* header.titulo-projeto { 
+	display: block;
+	position: relative;
+	padding-top: 100px;
+	padding-right: 25px;
+	padding-bottom: 40px;
+} */
+
+/* Media queries*/
+@media (max-width: 800px) {
+	img#Logo, img#Logo-2 {
+		display: none;
+	}
+	header.titulo-projeto h1{
+		font-size: 2.5em;
+	}
+
+	header.titulo-projeto h2{
+		font-size: 1.8em;
+	}
+
+	p, label {
+		font-size: 1em;
+	}
+
+	form.formulario img#img_circuito {
+		max-width: 300px;
+		max-height: 300px;
+		margin: 0 auto;
+	}
+}

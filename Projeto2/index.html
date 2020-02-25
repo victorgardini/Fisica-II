@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Projeto 2 de Física 2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Projeto3/css/estilo.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+		// Função de deslizar sob a tela
+		function toCalculated(){
+			$('html, body').animate({
+				scrollTop: 1000
+			}, 1000, 'linear');
+		}
+		// function toCalculated() {
+		// 	document.getElementById('resultados').scrollIntoView();
+		// }
+	</script>
+</head>
+
+<!-- <body onload="resetar_circuito();"> -->
+<body onload="fechar_resultado();">
+	<section id="box-principal">
+		<div class="container-fluid">
+	        <article class="row">
+	            <div class="col-md-10 offset-md-1">
+		            <header class="titulo-projeto">
+						<div class="col-md-3 float-left">
+							<img src="img/tigers-2.png" alt="Símbolo TI.GERS">
+						</div>
+						<div class="col-md-3 float-right">
+							<img src="img/unesp.jpg" alt="Unesp logo">
+						</div>
+						<div class="col-md-12">
+							<h1>Projeto 2 de Física</h1>
+							<h2>Trabalho realizado pelo grupo <b>TI.GERS</b></h2>
+						</div>
+					</header>
+		            <h4>O exercício:</h4>
+		            <p class="text-justify recuo"><b>Exercício: 116, página 185, Paul A. Tipler, Gene Mosca)</b> Considere o circuito mostrado abaixo. Utilizando seus conhecimentos de como os capacitores se comportam nos circuitos, determine <em> <b> (a) </b> </em> a corrente inicial que passa pela bateria imediatamente após a chave ser fechada. <em> <b> (b) </b> </em> a corrente estacionária que passa pela bateria quando a chave ficar fechada por um longo tempo e <em> <b> (c) </b> </em> a tensão máxima entre os terminais do capacitor.</p><br/>
+		            <h4>Dados:</h4>
+		        </div>
+	            <div class="col-md-5 offset-md-1 float-left">
+		            <form class="formulario" id="escolha" action="#resultados">
+		                <div class="box-circuito">
+			                <p>Digite abaixo os dados respectivos ao circuito ao lado, para calcular as opções: </p>
+							
+							<label for="tensao">Digite o valor da Tensão U em V (Volt):</label>
+							<div class="form-group">
+								<input type="number" step="any" id="tensao" class="form-control" min="0" oninvalid="InvalidMsg(this, 'da Tensão');" oninput="InvalidMsg(this, 'Tensão');" required placeholder="Digite o valor da tensão">
+							</div>
+
+							<label for="resistencia1">Digite o valor do Resistor R<sub>1</sub> em &Omega; (Ohm):</label>
+							<div class="form-group" style="display: flex;">
+								<input type="number" step="any" id="resistencia1" class="form-control" min="0" oninvalid="InvalidMsg(this, 'do Resistor 1');" oninput="InvalidMsg(this, 'Resistor 1');" required placeholder="Digite o valor da resistência 1">
+							<!-- https://pt.wikipedia.org/wiki/Prefixos_do_Sistema_Internacional_de_Unidades -->
+								<select name="" id="escala_res-1" class="form-control select-escala">
+									<option value="1000000">M&Omega;</option>
+									<option value="1000">k&Omega;</option>
+									<option value="1" selected>&Omega;</option>
+									<option value="0.001">m&Omega;</option>
+									<option value="0.000001">&micro;&Omega;</option>
+									<option value="0.000000001">n&Omega;</option>
+								</select>
+							</div>
+
+							<label for="resistencia2">Digite o valor do Resistor R<sub>2</sub> em &Omega; (Ohm):</label>
+							<div class="form-group" style="display: flex;">
+								<input type="number" step="any" id="resistencia2" class="form-control" min="0" oninvalid="InvalidMsg(this, 'do Resistor 2');" oninput="InvalidMsg(this, 'Resistor 2');" required placeholder="Digite o valor da resistência 2">
+								<select name="" id="escala_res-2" class="form-control select-escala">
+									<option value="1000000">M&Omega;</option>
+									<option value="1000">k&Omega;</option>
+									<option value="1" selected>&Omega;</option>
+									<option value="0.001">m&Omega;</option>
+									<option value="0.000001">&micro;&Omega;</option>
+									<option value="0.000000001">n&Omega;</option>
+								</select>
+							</div>
+
+							<label for="capacitancia">Digite o valor do Capacitor C em F (Farad):</label>
+							<div class="form-group" style="display: flex;">
+								<input type="number" step="any" id="capacitancia" class="form-control" min="0" oninvalid="InvalidMsg(this, 'do Capacitor');" oninput="InvalidMsg(this, 'Capacitor');" required placeholder="Digite o valor do capacitor">
+								<select name="" id="escala_capacitor" class="form-control select-escala">
+									<option value="">F</option>
+									<option value="0.001">mF</option>
+									<option value="0.000001">&micro;F</option>
+									<option value="0.000000001">nF</option>
+									<option value="" selected>pF</option>
+								</select>
+							 </div>
+							<div class="form-group">
+								<input type="submit" value="Calcular" class="btn btn-calcular" onclick="Calcular(); toCalculated();">
+								<input type="reset" value="Limpar todos os campos" class="btn btn-danger" onclick="fechar_resultado();">
+								<a href="../index.html" onclick="resetar_circuito();"><button class="btn btn-voltar float-right">Voltar</button></a>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-5 float-right">
+					<figure class="imagem_circuito">
+						<img src="img/aberto.jpg" id="img_circuito" alt="Imagem aproximada do circuito" title="Imagem aproximada do circuito" class="">
+						<figcaption>Figura 1: Desenho do circuito a ser calculado</figcaption>
+					</figure>
+				</div>
+				<div id="resultados" class="col-md-10 offset-md-1">
+					<h4>Resultados:</h4>
+					<p class="text-justify"> <b> a) </b> No momento ilustrado abaixo, temos que, o capacitor C está descarregado, o campo elétrico neste local é muito intenso, da forma que, a corrente ao passar pelo circuito, seja totalmente atraída até o momento em que ele se encontra carregado. Utilizando a lei de Kirchhoff: E = RI + V, e sabendo que no momento em que a chave é fechada não há diferença de potencial no circuito, nos leva a deduzir que V = 0, portanto ficamos com a seguinte equação: E = RI. Temos o valor de E e de R, então, manipulando a fórmula, descobrimos que: I = E / R, substituindo os valores obtemos o seguinte resultado: </br><b id="result">I<sub>0</sub> = <span id="alt_a"></span> A</b></p>
+					<figure>
+						<img src="img/GIF1.gif" alt="">
+						<figcaption>Figura 2: Referente ao exercício <i>a)</i></figcaption>
+					</figure>
+					<p class="text-justify"> <b> b) </b> Após um tempo em que a chave permanece fechada, o capacitor C se carrega, e quando isso ocorre o mesmo torna-se um isolante, ou seja, a corrente deixa de se direcionar para o capacitor, sendo assim, temos um circuito simples com dois resistores em série (R<sub>1</sub> e R<sub>2</sub>).<br>Utilizando a lei de Kirchhoff, obtemos a corrente estacionária pela seguinte fórmula: I<sub>&infin;</sub> = E / (R<sub>1</sub> + R<sub>2</sub>). <br>Substituindo os valores de E = <span id="v_tensao"></span> V, R<sub>1</sub> = <span id="v_res1"></span> &Omega; e R<sub>2</sub> = <span id="v_res2"></span> &Omega;, concluímos que a corrente é de: </br><b id="result">I<sub>&infin;</sub> = <span id="alt_b"></span> A</b></p>
+					<figure>
+						<img src="img/GIF2.gif" alt="">
+						<figcaption>Figura 3: Referente ao exercício <i>b)</i></figcaption>
+					</figure>
+					<p class="text-justify"> <b> c) </b> A máxima voltagem nos terminais do capacitor é obtida quando o capacitor C está carregado, sendo assim, a corrente do circuito usada para o cálculo será a estacionária. o resistor que será utilizado é o R<sub>2</sub>, que está em paralelo com o capacitor C. Portanto, utilizando a lei de Ohm, temos que V = I<sub>&infin;</sub>R<sub>2</sub>. Neste caso a voltagem será: </br><b id="result">V<sub>C&infin;</sub> = <span id="alt_c"></span> V</b></p>
+				</div>
+	        </article>
+        </div>
+    </section>
+</body>
+</html>
